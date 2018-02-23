@@ -6,39 +6,40 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Category
-                    <small>List</small>
+                <h1 class="page-header">Slide
+                    <small>Danh sách</small>
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
+            @if(session('thongbao'))
+                <div class="alert alert-success">
+                    {{session('thongbao')}}
+                </div>
+            @endif            
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Category Parent</th>
-                        <th>Status</th>
+                        <th>Tên</th>
+                        <th>Nội dung</th>
+                        <th>Hình</th>
+                        <th>Link</th>
                         <th>Delete</th>
                         <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($slide as $sd)
                     <tr class="odd gradeX" align="center">
-                        <td>1</td>
-                        <td>Tin Tức</td>
-                        <td>None</td>
-                        <td>Hiện</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                        <td>{{$sd->id}}</td>
+                        <td>{{$sd->Ten}}</td>
+                        <td>{{$sd->NoiDung}}</td>
+                        <td><img width="400px" src="upload/slide/{{$sd->Hinh}}"></td>
+                        <td>{{$sd->link}}</td>
+                        <td class="center"><i class="fa fa-trash-o fa-fw"></i><a onclick="return xoa()" href="admin/slide/xoa/{{$sd->id}}">Delete</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/slide/sua/{{$sd->id}}">Edit</a></td>
                     </tr>
-                    <tr class="even gradeC" align="center">
-                        <td>2</td>
-                        <td>Bóng Đá</td>
-                        <td>Thể Thao</td>
-                        <td>Ẩn</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -47,4 +48,13 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+    function xoa() {
+        var conf = confirm("Bạn có chắc chắn muốn xóa?");
+        return conf;
+    }
+    </script>
 @endsection
