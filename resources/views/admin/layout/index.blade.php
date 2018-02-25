@@ -7,7 +7,7 @@
     <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
     <meta name="author" content="">
     <title>Admin - Khoa Phạm</title>
-    <base href="{{asset('')}}"> <!-- thêm đường dẫn mặc định đến thư mục public -->
+    <base href="{{asset('')}}"> <!-- thêm đường dẫn mặc định đến thư mục public/ nếu trong route return thẳng về file view thì không cần <base>. Nếu route là đường dẫn dài đẩy sang controller thì cần <base> -->
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
