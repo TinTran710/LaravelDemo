@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'admin'], function() {
+Route::get('admin/dangnhap','UserController@getDangnhapAdmin');
+Route::post('admin/dangnhap','UserController@postDangnhapAdmin');
+Route::get('admin/logout','UserController@getDangXuatAdmin');
+
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'], function() { // adminLogin khai báo ở Kernel.php
 	Route::group(['prefix'=>'theloai'], function() {
 		Route::get('danhsach','TheLoaiController@getDanhSach');
 		Route::get('them','TheLoaiController@getThem');
@@ -47,7 +51,15 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('sua/{id}','SlideController@getSua');
 		Route::post('sua/{id}','SlideController@postSua');
 		Route::get('xoa/{id}','SlideController@getXoa');
-	});	
+	});
+	Route::group(['prefix'=>'user'], function() {
+		Route::get('danhsach','UserController@getDanhSach');
+		Route::get('them','UserController@getThem');
+		Route::post('them','UserController@postThem');
+		Route::get('sua/{id}','UserController@getSua');
+		Route::post('sua/{id}','UserController@postSua');
+		Route::get('xoa/{id}','UserController@getXoa');
+	});		
 	Route::group(['prefix'=>'comment'], function() {
 		Route::get('xoa/{id}/{idTinTuc}','CommentController@getXoa');
 	});
