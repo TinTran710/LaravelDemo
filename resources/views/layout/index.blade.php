@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>@yield('title')</title>
+    <base href="{{asset('')}}">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
