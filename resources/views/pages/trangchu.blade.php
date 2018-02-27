@@ -24,7 +24,7 @@
 		            		<!-- item -->
 						    <div class="row-item row">
 			                	<h3>
-			                		<a href="category.html">{{$tl->Ten}}</a> | 	
+			                		<a href="trangchu">{{$tl->Ten}}</a> | 	
 			                		@foreach($tl->loaitin as $lt)
 			                			<small><a href="loaitin/{{$lt->id}}/{{$lt->TenKhongDau}}.html">{{$lt->Ten}}</a> |</small>
 			                		@endforeach

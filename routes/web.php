@@ -74,4 +74,10 @@ Route::get('loaitin/{id}/{TenKhongDau}.html','PagesController@loaitin');
 Route::get('tintuc/{id}/{TieuDeKhongDau}.html','PagesController@tintuc');
 Route::get('dangnhap','PagesController@getDangnhap');
 Route::post('dangnhap','PagesController@postDangnhap');
-
+Route::get('dangxuat','PagesController@getDangxuat');
+Route::post('comment/{id}','CommentController@postComment');
+Route::get('nguoidung','PagesController@getNguoidung');
+Route::post('nguoidung','PagesController@postNguoidung');
+Route::get('dangky','PagesController@getDangky');
+Route::post('dangky','PagesController@postDangky');
+Route::get('timkiem','PagesController@getTimkiem');
